@@ -1,5 +1,5 @@
     {
-      "name": "intra-metrics-agg",
+      "name": "metrics-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -15,7 +15,7 @@
       }
     },
     {
-      "name": "intra-bool-must-double-phrase",
+      "name": "bool-must-double-phrase",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -30,7 +30,7 @@
       }
     },
     {
-      "name": "intra-span-near-query",
+      "name": "span-near-query",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -48,7 +48,7 @@
       }
     },
     {
-      "name": "intra-intervals-ordered-message",
+      "name": "intervals-ordered-message",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -69,7 +69,7 @@
       }
     },
     {
-      "name": "intra-bool-must-match-message",
+      "name": "bool-must-match-message",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -85,7 +85,7 @@
       }
     },
     {
-      "name": "intra-bool-should-match-med",
+      "name": "bool-should-match-med",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -102,7 +102,7 @@
       }
     },
     {
-      "name": "intra-bool-must-term-keyword",
+      "name": "bool-must-term-keyword",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -118,7 +118,7 @@
       }
     },
     {
-      "name": "intra-query-string-on-message",
+      "name": "query-string-on-message",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -130,7 +130,7 @@
       }
     },
     {
-      "name": "intra-metrics-stats-agg",
+      "name": "metrics-stats-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -144,7 +144,7 @@
       }
     },
     {
-      "name": "intra-sum-agg-with-total-hits",
+      "name": "sum-agg-with-total-hits",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -159,7 +159,7 @@
       }
     },
     {
-      "name": "intra-percentiles-agg",
+      "name": "percentiles-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -174,7 +174,7 @@
       }
     },
     {
-      "name": "intra-extended-stats-agg",
+      "name": "extended-stats-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -189,7 +189,7 @@
       }
     },
     {
-      "name": "intra-value-count-agg",
+      "name": "value-count-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -205,7 +205,7 @@
       }
     },
     {
-      "name": "intra-percentile-ranks-agg",
+      "name": "percentile-ranks-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -222,7 +222,7 @@
       }
     },
     {
-      "name": "intra-matrix-stats-agg",
+      "name": "matrix-stats-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -237,7 +237,7 @@
       }
     },
     {
-      "name": "intra-terms-top-hits-agg",
+      "name": "terms-top-hits-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -261,7 +261,7 @@
       }
     },
     {
-      "name": "intra-significant-terms-agg",
+      "name": "significant-terms-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -289,7 +289,7 @@
       }
     },
     {
-      "name": "intra-terms-stats-agg",
+      "name": "terms-stats-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -313,7 +313,7 @@
       }
     },
     {
-      "name": "intra-multi-terms-agg",
+      "name": "multi-terms-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -333,7 +333,7 @@
       }
     },
     {
-      "name": "intra-histogram-agg",
+      "name": "histogram-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -350,7 +350,7 @@
       }
     },
     {
-      "name": "intra-filter-agg",
+      "name": "filter-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -366,7 +366,7 @@
       }
     },
     {
-      "name": "intra-filters-agg",
+      "name": "filters-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -385,7 +385,7 @@
       }
     },
     {
-      "name": "intra-adjacency-matrix-agg",
+      "name": "adjacency-matrix-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -405,7 +405,7 @@
       }
     },
     {
-      "name": "intra-global-agg-with-query",
+      "name": "global-agg-with-query",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -428,7 +428,7 @@
       }
     },
     {
-      "name": "intra-global-agg",
+      "name": "global-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -446,7 +446,7 @@
       }
     },
     {
-      "name": "intra-post-filter-agg",
+      "name": "post-filter-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -482,7 +482,7 @@
       }
     },
     {
-      "name": "intra-min-score-agg",
+      "name": "min-score-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -504,7 +504,7 @@
       }
     },
     {
-      "name": "intra-search-after-agg",
+      "name": "search-after-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
@@ -522,7 +522,7 @@
       }
     },
     {
-      "name": "intra-span-near-agg",
+      "name": "span-near-agg",
       "operation-type": "search",
       "index": "{{index_name | default('big5')}}",
       "body": {
