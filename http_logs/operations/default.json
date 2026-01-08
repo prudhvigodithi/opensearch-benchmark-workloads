@@ -531,15 +531,13 @@
         "description": "Process search requests with a pipeline that renames the specified field 100 times.",
         "response_processors": [
           {% for i in range(1, 101) %}
+          {% if not loop.first %},{% endif %}
           {
             "rename_field": {
               "field": "status",
               "target_field": "status_{{ i }}"
             }
           }
-          {%     if not loop.first %}
-          ,
-          {%     endif %}
           {% endfor %}
         ]
       }
