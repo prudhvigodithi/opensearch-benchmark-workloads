@@ -647,7 +647,7 @@
           { "size": "asc" }
         ]
       }
-    }
+    },
     {
       "name": "range_status",
       "operation-type": "search",
