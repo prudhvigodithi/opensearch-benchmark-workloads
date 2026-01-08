@@ -208,5 +208,3 @@
       "target-throughput": {{ target_throughput | default(2) | tojson }},
       "clients": {{ search_clients | default(1) }}
     }
-  ]
-
