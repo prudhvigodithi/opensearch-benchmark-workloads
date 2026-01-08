@@ -694,21 +694,6 @@
       }
     },
     {
-      "name": "range_size",
-      "operation-type": "search",
-      "index": "logs-*",
-      "body": {
-        "query": {
-          "range": {
-            "size": {
-              "gte": 20,
-              "lte": 200
-            }
-          }
-        }
-      }
-    },
-    {
       "name": "range_size_desc_sort",
       "operation-type": "search",
       "index": "logs-*",
