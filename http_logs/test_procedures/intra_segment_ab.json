@@ -1,0 +1,70 @@
+{
+  "name": "intra-segment-ab",
+  "description": "Custom intra-segment relevant aggregation queries for balanced vs segment A/B on logs-241998.",
+  "default": false,
+  "schedule": [
+    {
+      "name": "dh_nonutc_avg",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1,
+      "operation": "dh_nonutc_avg"
+    },
+    {
+      "name": "dh_nonutc_stats",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1,
+      "operation": "dh_nonutc_stats"
+    },
+    {
+      "name": "autodh_nonutc_avg",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1,
+      "operation": "autodh_nonutc_avg"
+    },
+    {
+      "name": "range_overlap_avg",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1,
+      "operation": "range_overlap_avg"
+    },
+    {
+      "name": "numhist_avg",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1,
+      "operation": "numhist_avg"
+    },
+    {
+      "name": "cardinality_high",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1,
+      "operation": "cardinality_high"
+    },
+    {
+      "name": "hist_dh_sub",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1,
+      "operation": "hist_dh_sub"
+    },
+    {
+      "name": "dh_year_nonutc_avg",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1,
+      "operation": "dh_year_nonutc_avg"
+    },
+    {
+      "name": "range_nonoverlap_avg",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1,
+      "operation": "range_nonoverlap_avg"
+    }
+  ]
+}

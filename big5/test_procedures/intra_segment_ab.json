@@ -1,0 +1,61 @@
+{
+  "name": "intra-segment-ab",
+  "description": "Intra-segment A/B: intra-eligible aggs + one fast-path control, search-only, no ingest",
+  "default": false,
+  "schedule": [
+    {
+      "operation": "dh_nonutc_avg",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1
+    },
+    {
+      "operation": "dh_nonutc_stats",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1
+    },
+    {
+      "operation": "autodh_nonutc_avg",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1
+    },
+    {
+      "operation": "range_overlap_avg",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1
+    },
+    {
+      "operation": "numhist_avg",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1
+    },
+    {
+      "operation": "cardinality_high",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1
+    },
+    {
+      "operation": "hist_dh_sub",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1
+    },
+    {
+      "operation": "dh_year_nonutc_avg",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1
+    },
+    {
+      "operation": "range_nonoverlap_avg",
+      "warmup-iterations": 10,
+      "iterations": 20,
+      "clients": 1
+    }
+  ]
+}

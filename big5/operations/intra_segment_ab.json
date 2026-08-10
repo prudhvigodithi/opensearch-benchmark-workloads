@@ -1,0 +1,205 @@
+    {
+      "name": "dh_nonutc_avg",
+      "operation-type": "search",
+      "index": "{{index_name | default('big5')}}",
+      "request-timeout": 7200,
+      "body": {
+        "size": 0,
+        "aggs": {
+          "dh": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "1m",
+              "time_zone": "+05:30"
+            },
+            "aggs": {
+              "avg_size": {
+                "avg": { "field": "metrics.size" }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "dh_nonutc_stats",
+      "operation-type": "search",
+      "index": "{{index_name | default('big5')}}",
+      "request-timeout": 7200,
+      "body": {
+        "size": 0,
+        "aggs": {
+          "dh": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "1m",
+              "time_zone": "+05:30"
+            },
+            "aggs": {
+              "stats_size": {
+                "stats": { "field": "metrics.size" }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "autodh_nonutc_avg",
+      "operation-type": "search",
+      "index": "{{index_name | default('big5')}}",
+      "request-timeout": 7200,
+      "body": {
+        "size": 0,
+        "aggs": {
+          "adh": {
+            "auto_date_histogram": {
+              "field": "@timestamp",
+              "buckets": 100,
+              "time_zone": "+05:30"
+            },
+            "aggs": {
+              "avg_size": {
+                "avg": { "field": "metrics.size" }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "range_overlap_avg",
+      "operation-type": "search",
+      "index": "{{index_name | default('big5')}}",
+      "request-timeout": 7200,
+      "body": {
+        "size": 0,
+        "aggs": {
+          "r": {
+            "range": {
+              "field": "metrics.size",
+              "ranges": [
+                { "to": 1000 },
+                { "from": 500, "to": 10000 },
+                { "from": 5000 }
+              ]
+            },
+            "aggs": {
+              "avg_size": {
+                "avg": { "field": "metrics.size" }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "numhist_avg",
+      "operation-type": "search",
+      "index": "{{index_name | default('big5')}}",
+      "request-timeout": 7200,
+      "body": {
+        "size": 0,
+        "aggs": {
+          "h": {
+            "histogram": {
+              "field": "metrics.size",
+              "interval": 100
+            },
+            "aggs": {
+              "avg_size": {
+                "avg": { "field": "metrics.size" }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "cardinality_high",
+      "operation-type": "search",
+      "index": "{{index_name | default('big5')}}",
+      "request-timeout": 7200,
+      "body": {
+        "size": 0,
+        "aggs": {
+          "c": {
+            "cardinality": { "field": "agent.name" }
+          }
+        }
+      }
+    },
+    {
+      "name": "hist_dh_sub",
+      "operation-type": "search",
+      "index": "{{index_name | default('big5')}}",
+      "request-timeout": 7200,
+      "body": {
+        "size": 0,
+        "aggs": {
+          "h": {
+            "histogram": {
+              "field": "metrics.size",
+              "interval": 100000
+            },
+            "aggs": {
+              "dh": {
+                "date_histogram": {
+                  "field": "@timestamp",
+                  "calendar_interval": "day"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "dh_year_nonutc_avg",
+      "operation-type": "search",
+      "index": "{{index_name | default('big5')}}",
+      "request-timeout": 7200,
+      "body": {
+        "size": 0,
+        "aggs": {
+          "dh": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "calendar_interval": "year",
+              "time_zone": "+05:30"
+            },
+            "aggs": {
+              "avg_size": {
+                "avg": { "field": "metrics.size" }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "range_nonoverlap_avg",
+      "operation-type": "search",
+      "index": "{{index_name | default('big5')}}",
+      "request-timeout": 7200,
+      "body": {
+        "size": 0,
+        "aggs": {
+          "r": {
+            "range": {
+              "field": "metrics.size",
+              "ranges": [
+                { "to": 1000 },
+                { "from": 1000, "to": 10000 },
+                { "from": 10000 }
+              ]
+            },
+            "aggs": {
+              "avg_size": {
+                "avg": { "field": "metrics.size" }
+              }
+            }
+          }
+        }
+      }
+    }

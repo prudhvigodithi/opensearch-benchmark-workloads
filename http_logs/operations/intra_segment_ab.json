@@ -1,0 +1,226 @@
+{
+  "operation-type": "search",
+  "index": "logs-241998",
+  "body": {
+    "size": 0,
+    "aggs": {
+      "dh": {
+        "date_histogram": {
+          "field": "@timestamp",
+          "fixed_interval": "1m",
+          "time_zone": "+05:30"
+        },
+        "aggs": {
+          "avg_size": {
+            "avg": {
+              "field": "size"
+            }
+          }
+        }
+      }
+    }
+  },
+  "name": "dh_nonutc_avg"
+},
+{
+  "operation-type": "search",
+  "index": "logs-241998",
+  "body": {
+    "size": 0,
+    "aggs": {
+      "dh": {
+        "date_histogram": {
+          "field": "@timestamp",
+          "fixed_interval": "1m",
+          "time_zone": "+05:30"
+        },
+        "aggs": {
+          "stats_size": {
+            "stats": {
+              "field": "size"
+            }
+          }
+        }
+      }
+    }
+  },
+  "name": "dh_nonutc_stats"
+},
+{
+  "operation-type": "search",
+  "index": "logs-241998",
+  "body": {
+    "size": 0,
+    "aggs": {
+      "adh": {
+        "auto_date_histogram": {
+          "field": "@timestamp",
+          "buckets": 100,
+          "time_zone": "+05:30"
+        },
+        "aggs": {
+          "avg_size": {
+            "avg": {
+              "field": "size"
+            }
+          }
+        }
+      }
+    }
+  },
+  "name": "autodh_nonutc_avg"
+},
+{
+  "operation-type": "search",
+  "index": "logs-241998",
+  "body": {
+    "size": 0,
+    "aggs": {
+      "r": {
+        "range": {
+          "field": "size",
+          "ranges": [
+            {
+              "to": 1000
+            },
+            {
+              "from": 500,
+              "to": 10000
+            },
+            {
+              "from": 5000
+            }
+          ]
+        },
+        "aggs": {
+          "avg_size": {
+            "avg": {
+              "field": "size"
+            }
+          }
+        }
+      }
+    }
+  },
+  "name": "range_overlap_avg"
+},
+{
+  "operation-type": "search",
+  "index": "logs-241998",
+  "body": {
+    "size": 0,
+    "aggs": {
+      "h": {
+        "histogram": {
+          "field": "size",
+          "interval": 100
+        },
+        "aggs": {
+          "avg_size": {
+            "avg": {
+              "field": "size"
+            }
+          }
+        }
+      }
+    }
+  },
+  "name": "numhist_avg"
+},
+{
+  "operation-type": "search",
+  "index": "logs-241998",
+  "body": {
+    "size": 0,
+    "aggs": {
+      "c": {
+        "cardinality": {
+          "field": "clientip"
+        }
+      }
+    }
+  },
+  "name": "cardinality_high"
+},
+{
+  "operation-type": "search",
+  "index": "logs-241998",
+  "body": {
+    "size": 0,
+    "aggs": {
+      "h": {
+        "histogram": {
+          "field": "size",
+          "interval": 100000
+        },
+        "aggs": {
+          "dh": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "calendar_interval": "day"
+            }
+          }
+        }
+      }
+    }
+  },
+  "name": "hist_dh_sub"
+},
+{
+  "operation-type": "search",
+  "index": "logs-241998",
+  "body": {
+    "size": 0,
+    "aggs": {
+      "dh": {
+        "date_histogram": {
+          "field": "@timestamp",
+          "calendar_interval": "year",
+          "time_zone": "+05:30"
+        },
+        "aggs": {
+          "avg_size": {
+            "avg": {
+              "field": "size"
+            }
+          }
+        }
+      }
+    }
+  },
+  "name": "dh_year_nonutc_avg"
+},
+{
+  "operation-type": "search",
+  "index": "logs-241998",
+  "body": {
+    "size": 0,
+    "aggs": {
+      "r": {
+        "range": {
+          "field": "size",
+          "ranges": [
+            {
+              "to": 1000
+            },
+            {
+              "from": 1000,
+              "to": 10000
+            },
+            {
+              "from": 10000
+            }
+          ]
+        },
+        "aggs": {
+          "avg_size": {
+            "avg": {
+              "field": "size"
+            }
+          }
+        }
+      }
+    }
+  },
+  "name": "range_nonoverlap_avg"
+}

@@ -1,0 +1,275 @@
+{
+  "name": "dh_nonutc_avg",
+  "operation-type": "search",
+  "body": {
+    "aggs": {
+      "date": {
+        "date_histogram": {
+          "field": "date",
+          "fixed_interval": "1d",
+          "time_zone": "+05:30"
+        },
+        "aggs": {
+          "tmax_avg": {
+            "avg": {
+              "field": "TMAX"
+            }
+          }
+        }
+      }
+    },
+    "size": 0
+  }
+},
+{
+  "name": "dh_nonutc_stats",
+  "operation-type": "search",
+  "body": {
+    "aggs": {
+      "date": {
+        "date_histogram": {
+          "field": "date",
+          "calendar_interval": "week",
+          "time_zone": "+05:30"
+        },
+        "aggs": {
+          "tmax_stats": {
+            "stats": {
+              "field": "TMAX"
+            }
+          }
+        }
+      }
+    },
+    "size": 0
+  }
+},
+{
+  "name": "autodh_nonutc_avg",
+  "operation-type": "search",
+  "body": {
+    "aggs": {
+      "date": {
+        "auto_date_histogram": {
+          "field": "date",
+          "buckets": 100,
+          "time_zone": "+05:30"
+        },
+        "aggs": {
+          "tmax_avg": {
+            "avg": {
+              "field": "TMAX"
+            }
+          }
+        }
+      }
+    },
+    "size": 0
+  }
+},
+{
+  "name": "range_overlap_avg",
+  "operation-type": "search",
+  "body": {
+    "aggs": {
+      "tmax": {
+        "range": {
+          "field": "TMAX",
+          "ranges": [
+            {
+              "to": 0
+            },
+            {
+              "from": -10,
+              "to": 20
+            },
+            {
+              "from": 10
+            }
+          ]
+        },
+        "aggs": {
+          "tavg_avg": {
+            "avg": {
+              "field": "TAVG"
+            }
+          }
+        }
+      }
+    },
+    "size": 0
+  }
+},
+{
+  "name": "numhist_avg",
+  "operation-type": "search",
+  "body": {
+    "aggs": {
+      "tavg": {
+        "histogram": {
+          "field": "TAVG",
+          "interval": 5
+        },
+        "aggs": {
+          "tmax_avg": {
+            "avg": {
+              "field": "TMAX"
+            }
+          }
+        }
+      }
+    },
+    "size": 0
+  }
+},
+{
+  "name": "cardinality_high",
+  "operation-type": "search",
+  "body": {
+    "aggs": {
+      "stations": {
+        "cardinality": {
+          "field": "station.id"
+        }
+      }
+    },
+    "size": 0
+  }
+},
+{
+  "name": "hist_dh_sub",
+  "operation-type": "search",
+  "body": {
+    "aggs": {
+      "tmax": {
+        "histogram": {
+          "field": "TMAX",
+          "interval": 50
+        },
+        "aggs": {
+          "date": {
+            "date_histogram": {
+              "field": "date",
+              "calendar_interval": "day"
+            }
+          }
+        }
+      }
+    },
+    "size": 0
+  }
+},
+{
+  "name": "dh_year_nonutc_avg",
+  "operation-type": "search",
+  "body": {
+    "aggs": {
+      "date": {
+        "date_histogram": {
+          "field": "date",
+          "calendar_interval": "year",
+          "time_zone": "+05:30"
+        },
+        "aggs": {
+          "tmax_avg": {
+            "avg": {
+              "field": "TMAX"
+            }
+          }
+        }
+      }
+    },
+    "size": 0
+  }
+},
+{
+  "name": "range_nonoverlap_avg",
+  "operation-type": "search",
+  "body": {
+    "aggs": {
+      "tmax": {
+        "range": {
+          "field": "TMAX",
+          "ranges": [
+            {
+              "to": -10
+            },
+            {
+              "from": -10,
+              "to": 0
+            },
+            {
+              "from": 0,
+              "to": 10
+            },
+            {
+              "from": 10,
+              "to": 20
+            },
+            {
+              "from": 20,
+              "to": 30
+            },
+            {
+              "from": 30
+            }
+          ]
+        },
+        "aggs": {
+          "tavg_avg": {
+            "avg": {
+              "field": "TAVG"
+            }
+          }
+        }
+      }
+    },
+    "size": 0
+  }
+},
+{
+  "name": "workload_range_date_histo",
+  "operation-type": "search",
+  "body": {
+    "aggs": {
+      "tmax": {
+        "range": {
+          "field": "TMAX",
+          "ranges": [
+            {
+              "to": -10
+            },
+            {
+              "from": -10,
+              "to": 0
+            },
+            {
+              "from": 0,
+              "to": 10
+            },
+            {
+              "from": 10,
+              "to": 20
+            },
+            {
+              "from": 20,
+              "to": 30
+            },
+            {
+              "from": 30
+            }
+          ]
+        },
+        "aggs": {
+          "date": {
+            "date_histogram": {
+              "field": "date",
+              "calendar_interval": "1w"
+            }
+          }
+        }
+      }
+    },
+    "size": 0
+  }
+}
